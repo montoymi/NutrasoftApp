@@ -1,0 +1,264 @@
+{
+	"WELCOME_INTRO": "PERFORMANCE NUTRITION",
+
+	"//1": "TITLE",
+
+	"TAB1_COACH_TITLE": "Plans",
+	"TAB2_COACH_TITLE": "Dishes",
+	"TAB3_COACH_TITLE": "Menus",
+	"TAB4_COACH_TITLE": "Me",
+
+	"TAB1_CLIENT_TITLE": "Diet",
+	"TAB2_CLIENT_TITLE": "Measurement",
+	"TAB3_CLIENT_TITLE": "Me",
+
+	"SIGNUP_TITLE": "Sign up",
+	"EDIT_USER_TITLE": "Edit profile",
+	"DETAIL_USER_TITLE": "Profile",
+
+	"CHANGE_PASSWORD_TITLE": "Change password",
+
+	"LIST_PLAN_TITLE": "Plans",
+	"ADD_PLAN_TITLE": "Add plan",
+	"EDIT_PLAN_TITLE": "Edit plan",
+
+	"STEP1_PLAN_TITLE": "General",
+	"STEP2_PLAN_TITLE": "Measurements",
+	"STEP3_PLAN_TITLE": "Activities",
+	"STEP4_PLAN_TITLE": "Intake",
+
+	"STEP1_PLAN_SUBTITLE": "Enter the general information",
+	"STEP2_PLAN_SUBTITLE": "Enter the measures",
+	"STEP3_PLAN_SUBTITLE": "Select daily activities",
+	"STEP4_PLAN_SUBTITLE": "Adjust the daily intake",
+
+	"CUSTOMERS_TITLE": "Customers",
+	"COACHES_TITLE": "Coaches",
+	"ACTIVITIES_TITLE": "Activities",
+	"MACRONUTRIENT_TITLE": "Macronutrients",
+	"FOODS_TITLE": "Foods",
+	"DIET_TYPE_TITLE": "Diet type",
+	"DISH_TITLE": "Dishes",
+
+	"DIET_TITLE": "Diet",
+	"GENERATE_DIET_TITLE": "Generate diet",
+	"EQUIVALENT_MEASURE_TITLE": "Equivalent measure",
+
+	"LIST_DISH_TITLE": "Dishes",
+	"ADD_DISH_TITLE": "Add dish",
+	"EDIT_DISH_TITLE": "Edit dish",
+
+	"DETAIL_PREFERENCE_TITLE": "Preferences",
+	"EDIT_PREFERENCE_TITLE": "Edit preferences",
+
+	"LIST_MENU_TITLE": "Menus",
+	"ADD_MENU_TITLE": "Add menu",
+	"EDIT_MENU_TITLE": "Edit menu",
+
+	"//2": "USER FIELD",
+
+	"ITEM_ADD_CHOOSE_IMAGE": "Add Image",
+	"COACH": "Coach",
+	"NAME": "Name",
+	"EMAIL": "Email",
+	"GENDER": "Gender",
+	"BIRTHDATE": "Birthdate",
+	"PHONE": "Phone",
+	"PASSWORD": "Password",
+	"CONFIRM_PASSWORD": "Confirm password",
+
+	"CURRENT_PASSWORD": "Current password",
+	"NEW_PASSWORD": "New password",
+
+	"GENDER_MALE": "Male",
+	"GENDER_FEMALE": "Female",
+
+	"//3": "PLAN FIELD",
+
+	"CLIENT": "Customer",
+	"GOAL": "Goal",
+	"BEGIN_DATE": "Begin date",
+	"END_DATE": "End date",
+	"HEIGHT": "Height",
+	"NECK": "Neck",
+	"WAIST": "Waist",
+	"HIP": "Hip",
+	"WEIGHT": "Weight",
+	"HR_MAX": "HR max",
+
+	"ACTIVITY_CLASS": "Category",
+	"ACTIVITY_TYPE": "Type",
+	"ACTIVITY": "Activity",
+	"DURATION": "Duration",
+
+	"WEEK": "Week",
+	"DAY": "Day",
+	"DAYS": "Days",
+	"EVERYDAY": "Everyday",
+
+	"MONDAY": "Monday",
+	"TUESDAY": "Tuesday",
+	"WEDNESDAY": "Wednesday",
+	"THURSDAY": "Thursday",
+	"FRIDAY": "Friday",
+	"SATURDAY": "Saturday",
+	"SUNDAY": "Sunday",
+
+	"ENERGY_BALANCE": "Energy balance",
+
+	"PRO": "Proteins",
+	"CHO": "Carbs",
+	"FAT": "Fats",
+
+	"MACROS_RATIO_TYPE_CUSTOM": "Custom",
+	"MACROS_RATIO": "Distribution of macronutrients",
+	"PROTEIN_CONSUMPTION": "Protein consumption",
+	"PROTEIN_CONSUMPTION_UNIT": " g/kg body weight",
+
+	"//3.1": "DISH FIELD",
+
+	"DISH_NAME": "Name",
+	"INGREDIENTS": "Ingredients",
+	"INGREDIENT": "Ingredient",
+	"QUANTITY": "Quantity",
+
+	"PART_PRO": "Protein",
+	"PART_GAR": "Garnish",
+	"PART_SAU": "Sauce",
+
+	"FOOD_GROUP": "Food group",
+
+	"COMPONENT": "Component",
+
+	"//3.2": "DIET FIELD",
+
+	"GOAL_VALUES": "Goal",
+	"TOTAL_VALUES": "Total",
+
+	"//3.3": "PREFERENCE FIELD",
+
+	"PREFERENCE_GENERAL": "General",
+	"DIET_TYPE": "Diet type",
+	"MEAL_COUNT": "Meal count",
+	"EXCLUDED_FOODS": "Excluded foods",
+
+	"//3.4": "MENU FIELD",
+
+	"DIET": "Diet",
+	"MENU_NAME": "Name",
+	"DISHES": "Dishes",
+
+	"//4": "PLACEHOLDER",
+
+	"SEARCH_PLACEHOLDER": "Search",
+	"HR_MAX_PLACEHOLDER": "bpm",
+	"HOURS_PLACEHOLDER": "hours",
+
+	"//5": "CONFIRM",
+
+	"DELETE_PLAN_CONFIRM_TITLE": "Confirm deletion",
+	"DELETE_PLAN_CONFIRM_MESSAGE": "Do you want to delete the plan?",
+
+	"DELETE_DISH_CONFIRM_TITLE": "Confirm deletion",
+	"DELETE_DISH_CONFIRM_MESSAGE": "Do you want to delete the dish?",
+
+	"DELETE_MENU_CONFIRM_TITLE": "Confirm deletion",
+	"DELETE_MENU_CONFIRM_MESSAGE": "Do you want to delete the menu?",
+
+	"//6": "SUCCESS",
+
+	"CREATE_USER_SUCCESS": "Account created",
+	"UPDATE_USER_SUCCESS": "Profile updated",
+
+	"CHANGE_PASSWORD_SUCCESS": "Password changed",
+
+	"CREATE_PLAN_SUCCESS": "Plan created",
+	"UPDATE_PLAN_SUCCESS": "Plan updated",
+	"DELETE_PLAN_SUCCESS": "Plan deleted",
+
+	"CREATE_DISH_SUCCESS": "Dish created",
+	"UPDATE_DISH_SUCCESS": "Dish updated",
+	"DELETE_DISH_SUCCESS": "Dish deleted",
+
+	"CREATE_MENU_SUCCESS": "Menu created",
+	"UPDATE_MENU_SUCCESS": "Menu updated",
+	"DELETE_MENU_SUCCESS": "Menu deleted",
+
+	"UPDATE_PREFERENCE_SUCCESS": "Preferences updated",
+
+	"//7": "ERROR",
+
+	"AUTH_EMAIL_ALREADY_IN_USE": "That username is already in use. Try another",
+
+	"AUTH_USER_NOT_FOUND": "Your account could not be found in Performance Nutrition",
+	"AUTH_WRONG_PASSWORD": "Incorrect password, try again or click on forgotten password to change it",
+
+	"REQUIRED_COACH_ERROR": "Select the coach",
+	"REQUIRED_NAME_ERROR": "Enter the name",
+	"MAX_LENGTH_NAME_ERROR": "The username must have a maximum of 15 characters",
+	"REQUIRED_GENDER_ERROR": "Select the gender",
+	"REQUIRED_BIRTHDATE_ERROR": "Select the birthdate",
+	"REQUIRED_EMAIL_ERROR": "Enter the email",
+	"PATTERN_EMAIL_ERROR": "Enter a valid email",
+	"REQUIRED_PASSWORD_ERROR": "The password is required",
+	"MIN_LENGTH_PASSWORD_ERROR": "The password must be at least 6 characters long",
+	"PATTERN_PASSWORD_ERROR": "Your password must contain at least one uppercase letter, one lower case letter and one number. Special characters are not allowed as: # $% &",
+	"REQUIRED_CONFIRM_PASSWORD_ERROR": "Confirm password is required",
+	"ARE_DIFFERENT_CONFIRM_PASSWORD_ERROR": "Passwords do not match",
+
+	"REQUIRED_CLIENT_ERROR": "Select the customer",
+	"REQUIRED_GOAL_ERROR": "Select the target",
+	"REQUIRED_BEGIN_DATE_ERROR": "Enter the start date",
+	"REQUIRED_END_DATE_ERROR": "Enter the end date",
+	"REQUIRED_HEIGHT_ERROR": "Enter the height",
+	"REQUIRED_NECK_ERROR": "Enter the neck measurement",
+	"REQUIRED_WAIST_ERROR": "Enter the waist measurement",
+	"REQUIRED_HIP_ERROR": "Enter the hip measurement",
+	"REQUIRED_WEIGHT_ERROR": "Enter body weight",
+	"REQUIRED_HRMAX_ERROR": "Enter the heart rate",
+	"INVALID_TOTAL_HOURS_ERROR": "The total time of activities on {day} must be 24 hours",
+	"VALIDATION_ERROR": "Validation error",
+
+	"REQUIRED_ACTIVITY_CLASS_ERROR": "Select the category",
+	"REQUIRED_ACTIVITY_TYPE_ERROR": "Select the type",
+	"REQUIRED_ACTIVITY_ERROR": "Select the activity",
+	"REQUIRED_TIME_ERROR": "Enter the duration",
+	"REQUIRED_DAY_ERROR": "Select the days",
+
+	"MIN_FAT_ENERG_PCT_ERROR": "The fat should never be below 15 percent",
+	"INVALID_MACROS_ERROR": "The sum of the percentages must be equal to 100",
+
+	"REQUIRED_DISH_NAME_ERROR": "Enter the name of the dish",
+	"REQUIRED_FOODS_ERROR": "Enter the ingredients",
+
+	"REQUIRED_FOOD_GROUP_ERROR": "Select the food group",
+	"REQUIRED_FOOD_ERROR": "Select the food",
+	"REQUIRED_PART_ERROR": "Select the component",
+
+	"REQUIRED_DIET_TYPE_ERROR": "Select the type of diet",
+	"REQUIRED_DISH_ERROR": "Select the dish",
+
+	"DIET_PLAN_NOT_FOUND": "The user does not have a plan yet created",
+	"DIET_MENU_NOT_FOUND": "There are no menus according to the plan data",
+	"MEAS_PLAN_NOT_FOUND": "The user does not have a plan yet created",
+
+	"//8": "BUTTON",
+
+	"LOGIN": "Sign in",
+	"SIGNUP_CLIENT": "Client",
+	"SIGNUP_COACH": "Coach",
+	"SIGNUP_BUTTON": "Sign up",
+
+	"PREFERENCES_BUTTON": "Preferences",
+	"HELP_BUTTON": "Help & feedback",
+	"SIGNOUT_BUTTON": "Sign out",
+
+	"CHANGE_PASSWORD_BUTTON": "Change password",
+
+	"BACK_BUTTON_TEXT": "Back",
+	"OK_BUTTON": "Ok",
+	"CANCEL_BUTTON": "Cancel",
+	"BACK_BUTTON": "Previous",
+	"NEXT_BUTTON": "Next",
+	"COMPLETE_BUTTON": "Finalize"
+}

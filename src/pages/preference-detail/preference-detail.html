@@ -1,0 +1,32 @@
+<ion-header>
+	<ion-navbar class="force-back-button">
+		<ion-title>{{ 'DETAIL_PREFERENCE_TITLE' | translate }}</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="openPreferenceSavePage()">
+				<ion-icon name="create"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list *ngIf="preference">
+		<ion-item-divider>
+			{{ 'PREFERENCE_GENERAL' | translate }}
+		</ion-item-divider>
+		<ion-item>
+			<h2>{{ 'DIET_TYPE' | translate }}</h2>
+			<p>{{ preference.dietType.name }}</p>
+		</ion-item>
+		<ion-item no-lines>
+			<h2>{{ 'MEAL_COUNT' | translate }}</h2>
+			<p>{{ preference.mealCount }}</p>
+		</ion-item>
+		<ion-item-divider>
+			{{ 'EXCLUDED_FOODS' | translate }}
+		</ion-item-divider>
+		<ion-item no-lines *ngFor="let excludedFood of preference.excludedFoodList">
+			<h2 text-wrap>{{ excludedFood.food.name }}</h2>
+		</ion-item>
+	</ion-list>
+</ion-content>

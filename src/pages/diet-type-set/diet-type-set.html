@@ -1,0 +1,35 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ 'DIET_TYPE_TITLE' | translate }}</ion-title>
+		<ion-buttons start>
+			<button ion-button (click)="cancel()">
+				<span color="primary" showWhen="ios">
+					{{ 'CANCEL_BUTTON' | translate }}
+				</span>
+				<ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons end>
+			<button ion-button (click)="done()" strong>
+				<span color="primary" showWhen="ios">
+					{{ 'OK_BUTTON' | translate }}
+				</span>
+				<ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-list radio-group [(ngModel)]="dietType">
+			<ion-item *ngFor="let dietType of dietTypeList">
+				<ion-label>
+					<h2>{{ dietType.name }}</h2>
+					<p text-wrap>{{ dietType.description }}</p>
+				</ion-label>
+				<ion-radio [value]="dietType" [checked]="dietType.id==preference.dietType.id"></ion-radio>
+			</ion-item>
+		</ion-list>
+	</ion-list>
+</ion-content>

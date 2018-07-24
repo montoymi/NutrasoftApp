@@ -1,0 +1,25 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ 'EQUIVALENT_MEASURE_TITLE' | translate }}</ion-title>
+		<ion-buttons start>
+			<button ion-button (click)="cancel()">
+				<span color="primary" showWhen="ios">
+					{{ 'CANCEL_BUTTON' | translate }}
+				</span>
+				<ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list>
+		<ion-item>
+			<h2>{{ dishPartFood.food.name }}</h2>
+			<p>{{ dishPartFood.weight }} g</p>
+		</ion-item>
+		<button ion-item no-lines *ngFor="let weight of weightList" (click)="done(weight)">
+			<h2>{{ weight.amount }} {{ weight.measure }}</h2>
+		</button>
+	</ion-list>
+</ion-content>

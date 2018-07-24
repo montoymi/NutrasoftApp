@@ -1,0 +1,167 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title></ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="openPlanSavePage()">
+				<ion-icon name="create"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div padding>
+		<ion-segment [(ngModel)]="segment">
+			<ion-segment-button value="tab1">
+				{{ 'STEP1_PLAN_TITLE' | translate }}
+			</ion-segment-button>
+			<ion-segment-button value="tab2">
+				{{ 'STEP2_PLAN_TITLE' | translate }}
+			</ion-segment-button>
+			<ion-segment-button value="tab3">
+				{{ 'STEP3_PLAN_TITLE' | translate }}
+			</ion-segment-button>
+			<ion-segment-button value="tab4">
+				{{ 'STEP4_PLAN_TITLE' | translate }}
+			</ion-segment-button>
+		</ion-segment>
+	</div>
+	<div [ngSwitch]="segment">
+		<ion-list *ngSwitchCase="'tab1'">
+			<ion-item>
+				<h2>{{ 'CLIENT' | translate }}</h2>
+				<p>{{ plan.client.name }}</p>
+			</ion-item>
+			<ion-item>
+				<h2>{{ 'GOAL' | translate }}</h2>
+				<p>{{ plan.goal.name }}</p>
+			</ion-item>
+			<ion-item>
+				<h2>{{ 'BEGIN_DATE' | translate }}</h2>
+				<p>{{ plan.beginDate | moment:'DD/MM/YYYY' }}</p>
+			</ion-item>
+			<ion-item>
+				<h2>{{ 'END_DATE' | translate }}</h2>
+				<p>{{ plan.endDate | moment:'DD/MM/YYYY' }}</p>
+			</ion-item>
+		</ion-list>
+		<ion-list *ngSwitchCase="'tab2'">
+			<ion-item>
+				<h2>{{ 'HEIGHT' | translate }}</h2>
+				<p>{{ plan.height }} m</p>
+			</ion-item>
+			<ion-item>
+				<h2>{{ 'NECK' | translate }}</h2>
+				<p>{{ plan.neck }} cm</p>
+			</ion-item>
+			<ion-item>
+				<h2>{{ 'WAIST' | translate }}</h2>
+				<p>{{ plan.waist }} cm</p>
+			</ion-item>
+			<ion-item>
+				<h2>{{ 'HIP' | translate }}</h2>
+				<p>{{ plan.hip }} cm</p>
+			</ion-item>
+			<ion-item>
+				<h2>{{ 'WEIGHT' | translate }}</h2>
+				<p>{{ plan.weight }} kg</p>
+			</ion-item>
+			<ion-item>
+				<h2>{{ 'HR_MAX' | translate }}</h2>
+				<p>{{ plan.hrMax }} {{ 'HR_MAX_PLACEHOLDER' | translate }}</p>
+			</ion-item>
+		</ion-list>
+		<ion-list *ngSwitchCase="'tab3'">
+			<ion-item-group *ngFor="let planDay of plan.planDayList">
+				<ion-item-divider sticky (click)="toggleDetails(planDay)">
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col>
+								{{ planDay.dayName }}
+							</ion-col>
+							<ion-col text-right col-1>
+								<ion-icon [name]="planDay.icon"></ion-icon>
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-item-divider>
+
+				<ion-item no-lines *ngFor="let planDayActivity of planDay.planDayActivityList" [hidden]="!planDay.showDetails">
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col>
+								<h2 text-wrap>{{ planDayActivity.activity.name }}</h2>
+							</ion-col>
+							<ion-col text-right col-2>
+								<h2>{{ planDayActivity.time }} h</h2>
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-item>
+			</ion-item-group>
+		</ion-list>
+		<ion-list *ngSwitchCase="'tab4'">
+			<div *ngFor="let planDay of plan.planDayList">
+				<ion-item-divider sticky>
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col>
+								{{ planDay.dayName }}
+							</ion-col>
+							<ion-col text-right col-4>
+								{{ planDay.energIntake }} kcal
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-item-divider>
+
+				<ion-item no-lines>
+					<ion-grid no-padding>
+						<ion-row>
+							<ion-col>
+								<h2>{{ 'PRO' | translate }}</h2>
+							</ion-col>
+							<ion-col text-right col-3 hideWhen="portrait">
+								<h2>{{ planDay.proBodywt }} g/kg
+									<sup>*</sup>
+								</h2>
+							</ion-col>
+							<ion-col text-right col-3>
+								<h2>{{ planDay.proEnergPct }}%</h2>
+							</ion-col>
+							<ion-col text-right col-4>
+								<h2>{{ planDay.proEnerg }} kcal</h2>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col>
+								<h2>{{ 'CHO' | translate }}</h2>
+							</ion-col>
+							<ion-col text-right col-3 hideWhen="portrait">
+							</ion-col>
+							<ion-col text-right col-3>
+								<h2>{{ planDay.choEnergPct }}%</h2>
+							</ion-col>
+							<ion-col text-right col-4>
+								<h2>{{ planDay.choEnerg }} kcal</h2>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<ion-col>
+								<h2>{{ 'FAT' | translate }}</h2>
+							</ion-col>
+							<ion-col text-right col-3 hideWhen="portrait">
+							</ion-col>
+							<ion-col text-right col-3>
+								<h2>{{ planDay.fatEnergPct }}%</h2>
+							</ion-col>
+							<ion-col text-right col-4>
+								<h2>{{ planDay.fatEnerg }} kcal</h2>
+							</ion-col>
+						</ion-row>
+					</ion-grid>
+				</ion-item>
+			</div>
+		</ion-list>
+	</div>
+</ion-content>

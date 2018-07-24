@@ -1,0 +1,264 @@
+{
+	"WELCOME_INTRO": "PERFORMANCE NUTRITION",
+
+	"//1": "TITLE",
+
+	"TAB1_COACH_TITLE": "Planes",
+	"TAB2_COACH_TITLE": "Platos",
+	"TAB3_COACH_TITLE": "Menús",
+	"TAB4_COACH_TITLE": "Yo",
+
+	"TAB1_CLIENT_TITLE": "Dieta",
+	"TAB2_CLIENT_TITLE": "Medición",
+	"TAB3_CLIENT_TITLE": "Yo",
+
+	"SIGNUP_TITLE": "Registro",
+	"EDIT_USER_TITLE": "Editar perfil",
+	"DETAIL_USER_TITLE": "Perfil",
+
+	"CHANGE_PASSWORD_TITLE": "Cambiar contraseña",
+
+	"LIST_PLAN_TITLE": "Planes",
+	"ADD_PLAN_TITLE": "Agregar plan",
+	"EDIT_PLAN_TITLE": "Editar plan",
+
+	"STEP1_PLAN_TITLE": "General",
+	"STEP2_PLAN_TITLE": "Medidas",
+	"STEP3_PLAN_TITLE": "Actividades",
+	"STEP4_PLAN_TITLE": "Ingesta",
+
+	"STEP1_PLAN_SUBTITLE": "Ingrese la información general",
+	"STEP2_PLAN_SUBTITLE": "Ingrese las medidas",
+	"STEP3_PLAN_SUBTITLE": "Seleccione las actividades diarias",
+	"STEP4_PLAN_SUBTITLE": "Ajuste la ingesta diaria",
+
+	"CUSTOMERS_TITLE": "Clientes",
+	"COACHES_TITLE": "Entrenadores",
+	"ACTIVITIES_TITLE": "Actividades",
+	"MACRONUTRIENT_TITLE": "Macronutrientes",
+	"FOODS_TITLE": "Alimentos",
+	"DIET_TYPE_TITLE": "Tipo de dieta",
+	"DISH_TITLE": "Platos",
+
+	"DIET_TITLE": "Dieta",
+	"GENERATE_DIET_TITLE": "Generar dieta",
+	"EQUIVALENT_MEASURE_TITLE": "Medida equivalente",
+
+	"LIST_DISH_TITLE": "Platos",
+	"ADD_DISH_TITLE": "Agregar plato",
+	"EDIT_DISH_TITLE": "Editar plato",
+
+	"DETAIL_PREFERENCE_TITLE": "Preferencias",
+	"EDIT_PREFERENCE_TITLE": "Editar preferencias",
+
+	"LIST_MENU_TITLE": "Menús",
+	"ADD_MENU_TITLE": "Agregar menú",
+	"EDIT_MENU_TITLE": "Editar menú",
+
+	"//2": "USER FIELD",
+
+	"ITEM_ADD_CHOOSE_IMAGE": "Añadir Imagen",
+	"COACH": "Entrenador",
+	"NAME": "Nombre",
+	"EMAIL": "Correo electrónico",
+	"GENDER": "Género",
+	"BIRTHDATE": "Fecha de nacimiento",
+	"PHONE": "Teléfono",
+	"PASSWORD": "Contraseña",
+	"CONFIRM_PASSWORD": "Confirmar contraseña",
+
+	"CURRENT_PASSWORD": "Contraseña actual",
+	"NEW_PASSWORD": "Nueva contraseña",
+
+	"GENDER_MALE": "Masculino",
+	"GENDER_FEMALE": "Femenino",
+
+	"//3": "PLAN FIELD",
+
+	"CLIENT": "Cliente",
+	"GOAL": "Objetivo",
+	"BEGIN_DATE": "Fecha de inicio",
+	"END_DATE": "Fecha de fin",
+	"HEIGHT": "Altura",
+	"NECK": "Cuello",
+	"WAIST": "Cintura",
+	"HIP": "Cadera",
+	"WEIGHT": "Peso",
+	"HR_MAX": "FC máx",
+
+	"ACTIVITY_CLASS": "Categoría",
+	"ACTIVITY_TYPE": "Tipo",
+	"ACTIVITY": "Actividad",
+	"DURATION": "Duración",
+
+	"WEEK": "Semana",
+	"DAY": "Día",
+	"DAYS": "Días",
+	"EVERYDAY": "Diario",
+
+	"MONDAY": "Lunes",
+	"TUESDAY": "Martes",
+	"WEDNESDAY": "Miércoles",
+	"THURSDAY": "Jueves",
+	"FRIDAY": "Viernes",
+	"SATURDAY": "Sábado",
+	"SUNDAY": "Domingo",
+
+	"ENERGY_BALANCE": "Balance energético",
+
+	"PRO": "Proteínas",
+	"CHO": "Carbos",
+	"FAT": "Grasas",
+
+	"MACROS_RATIO_TYPE_CUSTOM": "Personalizado",
+	"MACROS_RATIO": "Distribución de macronutrientes",
+	"PROTEIN_CONSUMPTION": "Consumo de proteína",
+	"PROTEIN_CONSUMPTION_UNIT": " g/kg de peso corporal",
+
+	"//3.1": "DISH FIELD",
+
+	"DISH_NAME": "Nombre",
+	"INGREDIENTS": "Ingredientes",
+	"INGREDIENT": "Ingrediente",
+	"QUANTITY": "Cantidad",
+
+	"PART_PRO": "Proteína",
+	"PART_GAR": "Guarnición",
+	"PART_SAU": "Salsa",
+
+	"FOOD_GROUP": "Grupo de alimentos",
+
+	"COMPONENT": "Componente",
+
+	"//3.2": "DIET FIELD",
+
+	"GOAL_VALUES": "Objetivo",
+	"TOTAL_VALUES": "Total",
+
+	"//3.3": "PREFERENCE FIELD",
+
+	"PREFERENCE_GENERAL": "General",
+	"DIET_TYPE": "Tipo de dieta",
+	"MEAL_COUNT": "Cantidad de comidas",
+	"EXCLUDED_FOODS": "Alimentos excluidos",
+
+	"//3.4": "MENU FIELD",
+
+	"DIET": "Dieta",
+	"MENU_NAME": "Nombre",
+	"DISHES": "Platos",
+
+	"//4": "PLACEHOLDER",
+
+	"SEARCH_PLACEHOLDER": "Buscar",
+	"HR_MAX_PLACEHOLDER": "ppm",
+	"HOURS_PLACEHOLDER": "horas",
+
+	"//5": "CONFIRM",
+
+	"DELETE_PLAN_CONFIRM_TITLE": "Confirmar eliminación",
+	"DELETE_PLAN_CONFIRM_MESSAGE": "¿Quieres eliminar el plan?",
+
+	"DELETE_DISH_CONFIRM_TITLE": "Confirmar eliminación",
+	"DELETE_DISH_CONFIRM_MESSAGE": "¿Quieres eliminar el plato?",
+
+	"DELETE_MENU_CONFIRM_TITLE": "Confirmar eliminación",
+	"DELETE_MENU_CONFIRM_MESSAGE": "¿Quieres eliminar el menú?",
+
+	"//6": "SUCCESS",
+
+	"CREATE_USER_SUCCESS": "Cuenta creada",
+	"UPDATE_USER_SUCCESS": "Perfil actualizado",
+
+	"CHANGE_PASSWORD_SUCCESS": "Contraseña cambiada",
+
+	"CREATE_PLAN_SUCCESS": "Plan creado",
+	"UPDATE_PLAN_SUCCESS": "Plan actualizado",
+	"DELETE_PLAN_SUCCESS": "Plan eliminado",
+
+	"CREATE_DISH_SUCCESS": "Plato creado",
+	"UPDATE_DISH_SUCCESS": "Plato actualizado",
+	"DELETE_DISH_SUCCESS": "Plato eliminado",
+
+	"CREATE_MENU_SUCCESS": "Menú creado",
+	"UPDATE_MENU_SUCCESS": "Menú actualizado",
+	"DELETE_MENU_SUCCESS": "Menú eliminado",
+
+	"UPDATE_PREFERENCE_SUCCESS": "Preferencias actualizadas",
+
+	"//7": "ERROR",
+
+	"AUTH_EMAIL_ALREADY_IN_USE": "Ese nombre de usuario ya está en uso. Prueba con otro",
+
+	"AUTH_USER_NOT_FOUND": "No se ha podido encontrar tu cuenta en Performance Nutrition",
+	"AUTH_WRONG_PASSWORD": "Contraseña incorrecta. Vuelve a intentarlo o haz clic en Contraseña olvidada para cambiarla",
+
+	"REQUIRED_COACH_ERROR": "Selecciona el entrenador",
+	"REQUIRED_NAME_ERROR": "Introduce el nombre",
+	"MAX_LENGTH_NAME_ERROR": "El nombre de usuario debe tener máximo 15 caracteres",
+	"REQUIRED_GENDER_ERROR": "Selecciona el género",
+	"REQUIRED_BIRTHDATE_ERROR": "Selecciona la fecha de nacimiento",
+	"REQUIRED_EMAIL_ERROR": "Introduce el correo electrónico",
+	"PATTERN_EMAIL_ERROR": "Ingrese un correo electrónico válido",
+	"REQUIRED_PASSWORD_ERROR": "La contraseña es requerida",
+	"MIN_LENGTH_PASSWORD_ERROR": "La contraseña debe tener al menos 6 caracteres de longitud",
+	"PATTERN_PASSWORD_ERROR": "Su contraseña debe contener al menos una letra mayúscula, una minúscula y un número. No se admiten caracteres especiales como: #$%&",
+	"REQUIRED_CONFIRM_PASSWORD_ERROR": "Confirmar contraseña es requerido",
+	"ARE_DIFFERENT_CONFIRM_PASSWORD_ERROR": "Las contraseñas no coinciden",
+
+	"REQUIRED_CLIENT_ERROR": "Selecciona el cliente",
+	"REQUIRED_GOAL_ERROR": "Selecciona el objetivo",
+	"REQUIRED_BEGIN_DATE_ERROR": "Introduce la fecha de inicio",
+	"REQUIRED_END_DATE_ERROR": "Introduce la fecha fin",
+	"REQUIRED_HEIGHT_ERROR": "Introduce la altura",
+	"REQUIRED_NECK_ERROR": "Introduce la medida del cuello",
+	"REQUIRED_WAIST_ERROR": "Introduce la medida de la cintura",
+	"REQUIRED_HIP_ERROR": "Introduce la medida de la cadera",
+	"REQUIRED_WEIGHT_ERROR": "Introduce el peso corporal",
+	"REQUIRED_HRMAX_ERROR": "Introduce la frecuencia cardiaca",
+	"INVALID_TOTAL_HOURS_ERROR": "El tiempo total de las actividades del {day} debe ser 24 horas",
+	"VALIDATION_ERROR": "Error de validación",
+
+	"REQUIRED_ACTIVITY_CLASS_ERROR": "Selecciona la categoría",
+	"REQUIRED_ACTIVITY_TYPE_ERROR": "Selecciona el tipo",
+	"REQUIRED_ACTIVITY_ERROR": "Selecciona la actividad",
+	"REQUIRED_TIME_ERROR": "Introduce la duración",
+	"REQUIRED_DAY_ERROR": "Selecciona los días",
+
+	"MIN_FAT_ENERG_PCT_ERROR": "La grasa nunca debe estar por debajo del 15 porciento",
+	"INVALID_MACROS_ERROR": "La suma de los porcentajes debe ser igual a 100",
+
+	"REQUIRED_DISH_NAME_ERROR": "Introduce el nombre del plato",
+	"REQUIRED_FOODS_ERROR": "Introduce los ingredientes",
+
+	"REQUIRED_FOOD_GROUP_ERROR": "Selecciona el grupo de alimentos",
+	"REQUIRED_FOOD_ERROR": "Selecciona el alimento",
+	"REQUIRED_PART_ERROR": "Selecciona el componente",
+
+	"REQUIRED_DIET_TYPE_ERROR": "Selecciona el tipo de dieta",
+	"REQUIRED_DISH_ERROR": "Selecciona el plato",
+
+	"DIET_PLAN_NOT_FOUND": "El usuario aún no tiene un plan creado",
+	"DIET_MENU_NOT_FOUND": "No existen menús según los datos el plan",
+	"MEAS_PLAN_NOT_FOUND": "El usuario aún no tiene un plan creado",
+
+	"//8": "BUTTON",
+
+	"LOGIN": "Iniciar sesión",
+	"SIGNUP_CLIENT": "Cliente",
+	"SIGNUP_COACH": "Entrenador",
+	"SIGNUP_BUTTON": "Registrarse",
+
+	"PREFERENCES_BUTTON": "Preferencias",
+	"HELP_BUTTON": "Ayuda y comentarios",
+	"SIGNOUT_BUTTON": "Salir",
+
+	"CHANGE_PASSWORD_BUTTON": "Cambiar contraseña",
+
+	"BACK_BUTTON_TEXT": "Atrás",
+	"OK_BUTTON": "Aceptar",
+	"CANCEL_BUTTON": "Cancelar",
+	"BACK_BUTTON": "Anterior",
+	"NEXT_BUTTON": "Siguiente",
+	"COMPLETE_BUTTON": "Finalizar"
+}

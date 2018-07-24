@@ -1,0 +1,93 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ 'EDIT_USER_TITLE' | translate }}</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="done()">
+				<ion-icon name="checkmark"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<form [formGroup]="form" *ngIf="form">
+		<input type="file" #fileInput style="display: none;" name="files[]" (change)="processWebImage($event)" />
+		<div class="profile-image-wrapper" (click)="getPicture()">
+			<div class="profile-image-placeholder">
+				<ion-icon name="add"></ion-icon>
+				<div>
+					{{ 'ITEM_ADD_CHOOSE_IMAGE' | translate }}
+				</div>
+			</div>
+			<!--<div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.form.controls.profilePic.value"></div>-->
+		</div>
+		<ion-list>
+			<ion-item *ngIf="user.userType == 'CLIENT'">
+				<ion-label floating>{{ 'COACH' | translate }}</ion-label>
+				<ion-input type="text" formControlName="coach" (tap)="openUserSearchPage()"></ion-input>
+			</ion-item>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.coach">
+					<div class="error-message" *ngIf="form.get('coach').hasError(validation.type) && (form.get('coach').dirty || form.get('coach').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<ion-item>
+				<ion-label floating>{{ 'NAME' | translate }}</ion-label>
+				<ion-input type="text" formControlName="name"></ion-input>
+			</ion-item>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.name">
+					<div class="error-message" *ngIf="form.get('name').hasError(validation.type) && (form.get('name').dirty || form.get('name').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<ion-item>
+				<ion-label floating>{{ 'GENDER' | translate }}</ion-label>
+				<ion-select formControlName="gender">
+					<ion-option *ngFor="let gender of genderList" [value]="gender.value">{{ gender.description }}</ion-option>
+				</ion-select>
+			</ion-item>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.gender">
+					<div class="error-message" *ngIf="form.get('gender').hasError(validation.type) && (form.get('gender').dirty || form.get('gender').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<ion-item>
+				<ion-label floating>{{ 'BIRTHDATE' | translate }}</ion-label>
+				<ion-datetime formControlName="birthdate" displayFormat="DD/MM/YYYY"></ion-datetime>
+			</ion-item>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.birthdate">
+					<div class="error-message" *ngIf="form.get('birthdate').hasError(validation.type) && (form.get('birthdate').dirty || form.get('birthdate').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<ion-item>
+				<ion-label floating>{{ 'PHONE' | translate }}</ion-label>
+				<ion-input type="tel" formControlName="phone"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label floating>{{ 'EMAIL' | translate }}</ion-label>
+				<ion-input type="email" formControlName="email"></ion-input>
+			</ion-item>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.email">
+					<div class="error-message" *ngIf="form.get('email').hasError(validation.type) && (form.get('email').dirty || form.get('email').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+		</ion-list>
+	</form>
+</ion-content>

@@ -1,0 +1,12 @@
+page-food-add {
+	// Se elimina todo borde.
+	.searchbar-ios {
+		background-color: transparent; // Background del borde externo
+		border-color: transparent; // Border superior e inferior.
+	}
+
+	// Se elimina el espacio inferior.
+	.searchbar-md .searchbar-input {
+		padding-bottom: 0px;
+	}
+}

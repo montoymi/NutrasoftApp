@@ -1,0 +1,272 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ plan && !plan.id ? ('ADD_PLAN_TITLE' | translate) : ('EDIT_PLAN_TITLE' | translate) }}</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<form [formGroup]="form" (submit)="done()" *ngIf="form">
+		<ion-stepper #stepper (selectIndexChange)="selectChange($event)">
+			<ion-step label="{{ 'STEP1_PLAN_TITLE' | translate }}" description="{{ 'STEP1_PLAN_SUBTITLE' | translate }}" formGroupName="step1">
+				<ion-list>
+					<ion-item>
+						<ion-label floating>{{ 'CLIENT' | translate }}</ion-label>
+						<ion-input #clientInput type="text" formControlName="client" (tap)="openUserSearchPage()"></ion-input>
+					</ion-item>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validationMessages.client">
+							<div class="error-message" *ngIf="form.get('step1').get('client').hasError(validation.type) && (form.get('step1').get('client').dirty || form.get('step1').get('client').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+
+					<ion-item>
+						<ion-label floating>{{ 'GOAL' | translate }}</ion-label>
+						<ion-select formControlName="goal">
+							<ion-option *ngFor="let goal of goalList" [value]="goal.id">{{ goal.name }}</ion-option>
+						</ion-select>
+					</ion-item>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validationMessages.goal">
+							<div class="error-message" *ngIf="form.get('step1').get('goal').hasError(validation.type) && (form.get('step1').get('goal').dirty || form.get('step1').get('goal').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+
+					<ion-item>
+						<ion-label floating>{{ 'BEGIN_DATE' | translate }}</ion-label>
+						<ion-datetime formControlName="beginDate" displayFormat="DD/MM/YYYY"></ion-datetime>
+					</ion-item>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validationMessages.beginDate">
+							<div class="error-message" *ngIf="form.get('step1').get('beginDate').hasError(validation.type) && (form.get('step1').get('beginDate').dirty || form.get('step1').get('beginDate').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+
+					<ion-item>
+						<ion-label floating>{{ 'END_DATE' | translate }}</ion-label>
+						<ion-datetime formControlName="endDate" displayFormat="DD/MM/YYYY"></ion-datetime>
+					</ion-item>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validationMessages.endDate">
+							<div class="error-message" *ngIf="form.get('step1').get('endDate').hasError(validation.type) && (form.get('step1').get('endDate').dirty || form.get('step1').get('endDate').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+
+					<br>
+					<button type="button" ion-button small ionicStepperNext>{{ 'NEXT_BUTTON' | translate }}</button>
+				</ion-list>
+			</ion-step>
+			<ion-step label="{{ 'STEP2_PLAN_TITLE' | translate }}" description="{{ 'STEP2_PLAN_SUBTITLE' | translate }}" formGroupName="step2">
+				<ion-list>
+					<ion-item>
+						<ion-label floating>{{ 'HEIGHT' | translate }}</ion-label>
+						<ion-input type="number" formControlName="height" placeholder="m" class="floating-with-placeholder"></ion-input>
+					</ion-item>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validationMessages.height">
+							<div class="error-message" *ngIf="form.get('step2').get('height').hasError(validation.type) && (form.get('step2').get('height').dirty || form.get('step2').get('height').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+
+					<ion-item>
+						<ion-label floating>{{ 'NECK' | translate }}</ion-label>
+						<ion-input type="number" formControlName="neck" placeholder="cm" class="floating-with-placeholder"></ion-input>
+					</ion-item>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validationMessages.neck">
+							<div class="error-message" *ngIf="form.get('step2').get('neck').hasError(validation.type) && (form.get('step2').get('neck').dirty || form.get('step2').get('neck').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+
+					<ion-item>
+						<ion-label floating>{{ 'WAIST' | translate }}</ion-label>
+						<ion-input type="number" formControlName="waist" placeholder="cm" class="floating-with-placeholder"></ion-input>
+					</ion-item>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validationMessages.waist">
+							<div class="error-message" *ngIf="form.get('step2').get('waist').hasError(validation.type) && (form.get('step2').get('waist').dirty || form.get('step2').get('waist').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+
+					<ion-item>
+						<ion-label floating>{{ 'HIP' | translate }}</ion-label>
+						<ion-input type="number" formControlName="hip" placeholder="cm" class="floating-with-placeholder"></ion-input>
+					</ion-item>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validationMessages.hip">
+							<div class="error-message" *ngIf="form.get('step2').get('hip').hasError(validation.type) && (form.get('step2').get('hip').dirty || form.get('step2').get('hip').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+
+					<ion-item>
+						<ion-label floating>{{ 'WEIGHT' | translate }}</ion-label>
+						<ion-input type="number" formControlName="weight" placeholder="kg" class="floating-with-placeholder"></ion-input>
+					</ion-item>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validationMessages.weight">
+							<div class="error-message" *ngIf="form.get('step2').get('weight').hasError(validation.type) && (form.get('step2').get('weight').dirty || form.get('step2').get('weight').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+
+					<ion-item>
+						<ion-label floating>{{ 'HR_MAX' | translate }}</ion-label>
+						<ion-input type="number" formControlName="hrMax" placeholder="{{ 'HR_MAX_PLACEHOLDER' | translate }}" class="floating-with-placeholder"></ion-input>
+					</ion-item>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validationMessages.hrMax">
+							<div class="error-message" *ngIf="form.get('step2').get('hrMax').hasError(validation.type) && (form.get('step2').get('hrMax').dirty || form.get('step2').get('hrMax').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+
+					<br>
+					<button type="button" ion-button small color="light" ionicStepperPrevious>{{ 'BACK_BUTTON' | translate }}</button>
+					<button type="button" ion-button small ionicStepperNext>{{ 'NEXT_BUTTON' | translate }}</button>
+				</ion-list>
+			</ion-step>
+			<ion-step label="{{ 'STEP3_PLAN_TITLE' | translate }}" description="{{ 'STEP3_PLAN_SUBTITLE' | translate }}" formGroupName="step3">
+				<ion-list>
+					<div padding-bottom>
+						<button type="button" ion-button small icon-only color="light" (click)="openActivityAddPage()">
+							<ion-icon name="add"></ion-icon>
+						</button>
+					</div>
+					<ion-item-group *ngFor="let planDay of plan.planDayList">
+						<ion-item-divider sticky (click)="toggleDetails(planDay)">
+							<ion-grid no-padding>
+								<ion-row>
+									<ion-col>
+										{{ planDay.dayName }}
+									</ion-col>
+									<ion-col text-right col-2>
+										{{ planDay.totalHours }} h
+									</ion-col>
+									<ion-col text-right col-1>
+										<ion-icon [name]="planDay.icon"></ion-icon>
+									</ion-col>
+								</ion-row>
+							</ion-grid>
+						</ion-item-divider>
+
+						<ion-item-sliding no-lines *ngFor="let planDayActivity of planDay.planDayActivityList" [hidden]="!planDay.showDetails">
+							<ion-item no-lines>
+								<ion-grid no-padding>
+									<ion-row>
+										<ion-col>
+											<h2 text-wrap>{{ planDayActivity.activity.name }}</h2>
+										</ion-col>
+										<ion-col text-right col-2>
+											<h2>{{ planDayActivity.time }} h</h2>
+										</ion-col>
+									</ion-row>
+								</ion-grid>
+							</ion-item>
+							<ion-item-options>
+								<button ion-button color="danger" (click)="removePlanDayActivity(planDay, planDayActivity)">
+									<ion-icon name="trash"></ion-icon>
+								</button>
+							</ion-item-options>
+						</ion-item-sliding>
+					</ion-item-group>
+					<br>
+					<button type="button" ion-button small color="light" ionicStepperPrevious>{{ 'BACK_BUTTON' | translate }}</button>
+					<button type="button" ion-button small ionicStepperNext>{{ 'NEXT_BUTTON' | translate }}</button>
+				</ion-list>
+			</ion-step>
+			<ion-step label="{{ 'STEP4_PLAN_TITLE' | translate }}" description="{{ 'STEP4_PLAN_SUBTITLE' | translate }}" formGroupName="step4">
+				<ion-list>
+					<ion-item-divider>{{ 'ENERGY_BALANCE' | translate }}</ion-item-divider>
+					<ion-item no-lines>
+						<ion-range min="-20" max="20" step="10" pin="true" snaps="true" formControlName="energVariationPct" (ionChange)="doEnergVariation($event)"></ion-range>
+					</ion-item>
+					<ion-item no-lines>
+						<p text-wrap>{{ energVariationPctDesc }}</p>
+					</ion-item>
+
+					<div *ngFor="let planDay of plan.planDayList">
+						<ion-item-divider sticky>
+							<ion-grid no-padding>
+								<ion-row>
+									<ion-col>
+										{{ planDay.dayName }}
+									</ion-col>
+									<ion-col text-right col-4>
+										{{ planDay.energIntake }} kcal
+									</ion-col>
+								</ion-row>
+							</ion-grid>
+						</ion-item-divider>
+
+						<button type="button" ion-item no-lines (click)="openMacronutrientCalcPage(planDay)">
+							<ion-grid no-padding>
+								<ion-row>
+									<ion-col>
+										<h2>{{ 'PRO' | translate }}</h2>
+									</ion-col>
+									<ion-col text-right col-3 hideWhen="portrait">
+										<h2>{{ planDay.proBodywt }} g/kg
+											<sup>*</sup>
+										</h2>
+									</ion-col>
+									<ion-col text-right col-3>
+										<h2>{{ planDay.proEnergPct }}%</h2>
+									</ion-col>
+									<ion-col text-right col-4>
+										<h2>{{ planDay.proEnerg }} kcal</h2>
+									</ion-col>
+								</ion-row>
+								<ion-row>
+									<ion-col>
+										<h2>{{ 'CHO' | translate }}</h2>
+									</ion-col>
+									<ion-col text-right col-3 hideWhen="portrait">
+									</ion-col>
+									<ion-col text-right col-3>
+										<h2>{{ planDay.choEnergPct }}%</h2>
+									</ion-col>
+									<ion-col text-right col-4>
+										<h2>{{ planDay.choEnerg }} kcal</h2>
+									</ion-col>
+								</ion-row>
+								<ion-row>
+									<ion-col>
+										<h2>{{ 'FAT' | translate }}</h2>
+									</ion-col>
+									<ion-col text-right col-3 hideWhen="portrait">
+									</ion-col>
+									<ion-col text-right col-3>
+										<h2>{{ planDay.fatEnergPct }}%</h2>
+									</ion-col>
+									<ion-col text-right col-4>
+										<h2>{{ planDay.fatEnerg }} kcal</h2>
+									</ion-col>
+								</ion-row>
+							</ion-grid>
+						</button>
+					</div>
+					<br>
+					<button type="button" ion-button small color="light" ionicStepperPrevious>{{ 'BACK_BUTTON' | translate }}</button>
+					<button type="submit" ion-button small>{{ 'COMPLETE_BUTTON' | translate }}</button>
+				</ion-list>
+			</ion-step>
+		</ion-stepper>
+	</form>
+</ion-content>

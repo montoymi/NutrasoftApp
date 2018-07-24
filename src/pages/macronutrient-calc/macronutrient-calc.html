@@ -1,0 +1,70 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ 'MACRONUTRIENT_TITLE' | translate }}</ion-title>
+		<ion-buttons start>
+			<button ion-button (click)="cancel()">
+				<span color="primary" showWhen="ios">
+					{{ 'CANCEL_BUTTON' | translate }}
+				</span>
+				<ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons end>
+			<button ion-button (click)="done()" strong>
+				<span color="primary" showWhen="ios">
+					{{ 'OK_BUTTON' | translate }}
+				</span>
+				<ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<form [formGroup]="form">
+		<ion-list>
+			<ion-item>
+				<ion-label>{{ 'MACROS_RATIO_TYPE_CUSTOM' | translate }}</ion-label>
+				<ion-toggle formControlName="isRatioCustom" [(ngModel)]="isRatioCustom" (ionChange)="enableRanges($event)"></ion-toggle>
+			</ion-item>
+			<div formGroupName="macros">
+				<ion-item>
+					<ion-label stacked class="ion-label-macros">{{ 'MACROS_RATIO' | translate }}</ion-label>
+					<ion-range min="0" max="100" step="5" pin="true" formControlName="proEnergPct" [(ngModel)]="planDay.proEnergPct" (ionChange)="setProBodywt($event)">
+						<ion-label range-left class="ion-label-left">{{ 'PRO' | translate }}</ion-label>
+						<ion-label range-right class="ion-label-right">{{ planDay.proEnergPct }}%</ion-label>
+					</ion-range>
+					<ion-range min="0" max="100" step="5" pin="true" formControlName="choEnergPct" [(ngModel)]="planDay.choEnergPct">
+						<ion-label range-left class="ion-label-left">{{ 'CHO' | translate }}</ion-label>
+						<ion-label range-right class="ion-label-right">{{ planDay.choEnergPct }}%</ion-label>
+					</ion-range>
+					<ion-range min="0" max="100" step="5" pin="true" formControlName="fatEnergPct" [(ngModel)]="planDay.fatEnergPct">
+						<ion-label range-left class="ion-label-left">{{ 'FAT' | translate }}</ion-label>
+						<ion-label range-right class="ion-label-right">{{ planDay.fatEnergPct }}%</ion-label>
+					</ion-range>
+				</ion-item>
+				<div class="validation-errors">
+					<ng-container *ngFor="let validation of validationMessages.fatEnergPct">
+						<div class="error-message" *ngIf="form.get('macros').get('fatEnergPct').hasError(validation.type)">
+							{{ validation.message }}
+						</div>
+					</ng-container>
+				</div>
+
+			</div>
+			<!-- These validations are for the form group -->
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.macros">
+					<div class="error-message" *ngIf="form.get('macros').hasError(validation.type)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+			
+			<ion-item>
+				<h2>{{ 'PROTEIN_CONSUMPTION' | translate }}</h2>
+				<p>{{ planDay.proBodywt }} {{ 'PROTEIN_CONSUMPTION_UNIT' | translate }}</p>
+			</ion-item>
+		</ion-list>
+	</form>
+</ion-content>

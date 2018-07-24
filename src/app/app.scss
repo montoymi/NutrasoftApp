@@ -1,5 +1,4 @@
-// http://ionicframework.com/docs/theming/
-
+// http://ionicframework.com/docs/v2/theming/
 
 // App Global Sass
 // --------------------------------------------------
@@ -14,3 +13,69 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+// Remueve el spin box de los ion-input number.
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type='number'] {
+	-moz-appearance: textfield;
+}
+
+.error-message {
+	color: red;
+	padding-left: 16px;
+}
+
+// Evita que el floating label tape el placeholder.
+ion-input.floating-with-placeholder {
+	input:focus::-webkit-input-placeholder {
+		color: gray;
+	}
+	input:focus:-moz-placeholder {
+		color: gray;
+	}
+	input:focus::-moz-placeholder {
+		color: gray;
+	}
+	input:focus:-ms-input-placeholder {
+		color: gray;
+	}
+	input::-webkit-input-placeholder {
+		color: transparent;
+	}
+	input:-moz-placeholder {
+		color: transparent;
+	}
+	input::-moz-placeholder {
+		color: transparent;
+	}
+	input:-ms-input-placeholder {
+		color: transparent;
+	}
+}
+
+.ios {
+	hr {
+		height: 1px;
+	}
+}
+
+// Para mostrar botones uno debajo de otro
+// class="stacked"
+button.stacked {
+	margin-bottom: 12px;
+}
+
+.force-back-button .back-button {
+	display: inline-block;
+}
+
+/*
+.col {
+	background: gray;
+	border: think solid black;
+}
+*/

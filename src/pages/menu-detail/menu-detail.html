@@ -1,0 +1,30 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title></ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="openMenuSavePage()">
+				<ion-icon name="create"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list *ngIf="menu">
+		<ion-item>
+			<h2>{{ 'DIET_TYPE' | translate }}</h2>
+			<p>{{ menu.dietType.name }}</p>
+		</ion-item>
+		<ion-item no-lines>
+			<h2>{{ 'MENU_NAME' | translate }}</h2>
+			<p>{{ menu.name }}</p>
+		</ion-item>
+		<ion-item-divider>
+			{{ 'DISHES' | translate }}
+		</ion-item-divider>
+		<ion-item *ngFor="let menuMeal of menu.menuMealList">
+			<h2>{{ menuMeal.meal.name }}</h2>
+			<p>{{ menuMeal.dish.name }}</p>
+		</ion-item>
+	</ion-list>
+</ion-content>

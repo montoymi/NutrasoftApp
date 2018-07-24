@@ -1,0 +1,76 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ 'FOODS_TITLE' | translate }}</ion-title>
+		<ion-buttons start>
+			<button ion-button (click)="cancel()">
+				<span color="primary" showWhen="ios">
+					{{ 'CANCEL_BUTTON' | translate }}
+				</span>
+				<ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons end>
+			<button ion-button (click)="done()" strong>
+				<span color="primary" showWhen="ios">
+					{{ 'OK_BUTTON' | translate }}
+				</span>
+				<ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<form [formGroup]="form" *ngIf="form">
+		<ion-list>
+			<ion-item>
+				<ion-label floating>{{ 'FOOD_GROUP' | translate }}</ion-label>
+				<ion-select formControlName="foodGroup" [(ngModel)]="foodGroup" (ionChange)="initializeItems()">
+					<ion-option *ngFor="let foodGroup of foodGroupList" [value]="foodGroup">{{ foodGroup.name }}</ion-option>
+				</ion-select>
+			</ion-item>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.foodGroup">
+					<div class="error-message" *ngIf="form.get('foodGroup').hasError(validation.type) && (form.get('foodGroup').dirty || form.get('foodGroup').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"></ion-searchbar>
+			<hr style="margin-top: 0px;">
+			<div formGroupName="foods" style="height: 220px; overflow-y: scroll;">
+				<ion-item no-lines *ngFor="let food of (filteredFoodList ? filteredFoodList : [])">
+					<ion-label text-wrap>{{ food.name }}</ion-label>
+					<ion-checkbox [formControlName]="food.ndbNo" [(ngModel)]="food.checked"></ion-checkbox>
+				</ion-item>
+			</div>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.foods">
+					<div class="error-message" *ngIf="form.get('foods').hasError(validation.type) && (form.get('foods').dirty || form.get('foods').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<hr>
+			<ion-list radio-group formControlName="parts" [(ngModel)]="dishPart">
+				<ion-item no-lines>
+					<p>{{ 'COMPONENT' | translate }}</p>
+				</ion-item>
+				<ion-item no-lines *ngFor="let dishPart of dishPartList">
+					<ion-label>{{ dishPart.partName }}</ion-label>
+					<ion-radio [value]="dishPart"></ion-radio>
+				</ion-item>
+				<div class="validation-errors">
+					<ng-container *ngFor="let validation of validationMessages.parts">
+						<div class="error-message" *ngIf="form.get('parts').hasError(validation.type) && (form.get('parts').dirty || form.get('parts').touched)">
+							{{ validation.message }}
+						</div>
+					</ng-container>
+				</div>
+
+			</ion-list>
+		</ion-list>
+	</form>
+</ion-content>

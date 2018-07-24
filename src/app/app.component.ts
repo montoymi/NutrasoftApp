@@ -1,22 +1,89 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { TranslateService } from '@ngx-translate/core';
+import { Config, Platform } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Globalization } from '@ionic-native/globalization';
 
-import { HomePage } from '../pages/home/home';
+import { FirstRunPage, MainPage } from '../pages/pages';
+import { Settings, UserProvider } from '../providers/providers';
+
 @Component({
-  templateUrl: 'app.html'
+	template: `<ion-nav #content [root]="rootPage"></ion-nav>`
 })
 export class MyApp {
-  rootPage:any = HomePage;
+	rootPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-    platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
-      splashScreen.hide();
-    });
-  }
+	constructor(
+		private translate: TranslateService,
+		public platform: Platform,
+		settings: Settings,
+		private config: Config,
+		private statusBar: StatusBar,
+		private splashScreen: SplashScreen,
+		private afAuth: AngularFireAuth,
+		public userProvider: UserProvider,
+		private globalization: Globalization
+	) {
+		this.initializeApp();
+		this.initTranslate();
+
+		this.afAuth.auth.onAuthStateChanged(user => {
+			if (user) {
+				// User is signed in.
+				this.userProvider.getUserByEmail(user.email).subscribe(
+					(res: any) => {
+						// Es nulo cuando se invoca desde onAuthStateChanged
+						// luego de createUserWithEmailAndPassword y antes de
+						// crear el usuario en la app.
+						if (!res.body) {
+							return;
+						}
+
+						this.rootPage = MainPage;
+					},
+					err => {
+						console.info(err);
+					}
+				);
+			} else {
+				// User isn't signed in.
+				this.rootPage = FirstRunPage;
+			}
+		});
+	}
+
+	initializeApp() {
+		this.platform.ready().then(() => {
+			// Okay, so the platform is ready and our plugins are available.
+			// Here you can do any higher level native things you might need.
+			this.statusBar.styleDefault();
+			this.splashScreen.hide();
+		});
+	}
+
+	initTranslate() {
+		// Set the default language for translation strings, and the current language.
+		this.translate.setDefaultLang('es');
+
+		// Asigna el idioma por defecto según el idioma del dispositivo.
+		this.globalization
+			.getPreferredLanguage()
+			.then(res => {
+				// El lenguaje retorna en formato es-US.
+				let lang = res.value.split('-')[0];
+				this.translate.use(lang);
+			})
+			.catch(err => {
+				// Cuando se ejecuta desde el navegador entra
+				// a esta parte, porque no carga las librerias
+				// de cordova.
+				this.translate.use(this.translate.getDefaultLang());
+			});
+
+		this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
+			this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
+		});
+	}
 }
-

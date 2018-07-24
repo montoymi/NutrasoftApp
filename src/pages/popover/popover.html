@@ -1,0 +1,6 @@
+<ion-list no-lines>
+	<!-- Si aumentan las opciones diferentes según la página hacerlo dinámico como los tabs -->
+	<button ion-item *ngIf="userType == 'CLIENT'" (click)="openPreferenceSavePage()">{{ 'PREFERENCES_BUTTON' | translate }}</button>
+	<button ion-item>{{ 'HELP_BUTTON' | translate }}</button>
+	<button ion-item (click)="logout()">{{ 'SIGNOUT_BUTTON' | translate }}</button>
+</ion-list>

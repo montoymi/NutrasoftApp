@@ -1,0 +1,54 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ 'Medidas' | translate }}</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="presentPopover($event)">
+				<ion-icon name="more"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-card>
+		<ion-card-header>
+			<h2>Composición corporal</h2>
+		</ion-card-header>
+		<ion-card-content>
+			<ion-grid no-padding *ngIf="measurement">
+				<ion-row>
+					<ion-col text-center class="border-b">
+						<h1 class="weight">{{ measurement.weight }}</h1>
+						<h2>kg</h2>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col col-3 text-center class="border-r">
+						<h1>{{ measurement.fatPct }}
+							<sup>%</sup>
+						</h1>
+						<p>Grasa</p>
+					</ion-col>
+					<ion-col col-3 text-center class="border-r">
+						<h1>{{ measurement.musclePct }}
+							<sup>%</sup>
+						</h1>
+						<p>Musculo</p>
+					</ion-col>
+					<ion-col col-3 text-center class="border-r">
+						<h1>{{ measurement.waterPct }}
+							<sup>%</sup>
+						</h1>
+						<p>Agua</p>
+					</ion-col>
+					<ion-col col-3 text-center>
+						<h1>{{ measurement.bonePct }}
+							<sup>%</sup>
+						</h1>
+						<p>Hueso</p>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+</ion-content>

@@ -1,0 +1,47 @@
+<head>
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Orbitron');
+	</style>
+</head>
+
+<ion-content scroll="false">
+	<div align="center" style="margin-top: 100px; margin-bottom: 100px;">
+		<h1 style="font-family: 'Orbitron', sans-serif; font-size: 120%;">{{ 'WELCOME_INTRO' | translate }}</h1>
+	</div>
+	<form (submit)="doLogin()">
+		<ion-list>
+			<ion-item>
+				<ion-label floating>{{ 'EMAIL' | translate }}</ion-label>
+				<ion-input type="email" [(ngModel)]="user.email" name="email"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label floating>{{ 'PASSWORD' | translate }}</ion-label>
+				<ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
+			</ion-item>
+			<div padding align="center">
+				<button ion-button small block>{{ 'LOGIN' | translate }}</button>
+				<ion-grid no-padding>
+					<ion-row align-items-center>
+						<ion-col>
+							<hr>
+						</ion-col>
+						<ion-col style="margin-left: 16px; margin-right: 16px;">
+							<p text-nowrap>Registrarse como</p>
+						</ion-col>
+						<ion-col>
+							<hr>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col style="margin-right: 12px;">
+							<button type="button" ion-button small block color="light" (click)="openSignupPage('CLIENT')">{{ 'SIGNUP_CLIENT' | translate }}</button>
+						</ion-col>
+						<ion-col>
+							<button type="button" ion-button small block color="light" (click)="openSignupPage('COACH')">{{ 'SIGNUP_COACH' | translate }}</button>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+		</ion-list>
+	</form>
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ 'EDIT_PREFERENCE_TITLE' | translate }}</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="done()">
+				<ion-icon name="checkmark"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<form [formGroup]="form" *ngIf="form">
+		<ion-list>
+			<ion-item-divider>
+				{{ 'PREFERENCE_GENERAL' | translate }}
+			</ion-item-divider>
+			<ion-item>
+				<ion-label floating>{{ 'DIET_TYPE' | translate }}</ion-label>
+				<ion-input type="text" formControlName="dietType" (tap)="openDietTypeSetPage()"></ion-input>
+			</ion-item>
+			<ion-item no-lines>
+				<ion-label floating>{{ 'MEAL_COUNT' | translate }}</ion-label>
+				<ion-select formControlName="mealCount">
+					<ion-option [value]="3">3 comidas</ion-option>
+					<ion-option [value]="4">4 comidas</ion-option>
+					<ion-option [value]="5">5 comidas</ion-option>
+					<ion-option [value]="6">6 comidas</ion-option>
+				</ion-select>
+			</ion-item>
+			<ion-item-divider>
+				{{ 'EXCLUDED_FOODS' | translate }}
+			</ion-item-divider>
+			<div padding-top padding-left>
+				<button type="button" ion-button small icon-only color="light" (click)="openFoodAdd2Page()">
+					<ion-icon name="add"></ion-icon>
+				</button>
+			</div>
+			<ion-item-sliding no-lines *ngFor="let excludedFood of preference.excludedFoodList">
+				<ion-item no-lines>
+					<h2 text-wrap>{{ excludedFood.food.name }}</h2>
+				</ion-item>
+				<ion-item-options>
+					<button ion-button color="danger" (click)="removeExcludedFood(preference, excludedFood)">
+						<ion-icon name="trash"></ion-icon>
+					</button>
+				</ion-item-options>
+			</ion-item-sliding>
+		</ion-list>
+	</form>
+</ion-content>

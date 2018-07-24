@@ -1,0 +1,37 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title></ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="openDishSavePage()">
+				<ion-icon name="create"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list *ngIf="dish">
+		<ion-item no-lines>
+			<h2>{{ 'DISH_NAME' | translate }}</h2>
+			<p>{{ dish.name }}</p>
+		</ion-item>
+		<ion-item-group *ngFor="let dishPart of dish.dishPartList">
+			<ion-item-divider sticky (click)="toggleDetails(dishPart)">
+				<ion-grid no-padding>
+					<ion-row>
+						<ion-col>
+							{{ dishPart.partName }}
+						</ion-col>
+						<ion-col text-right col-1>
+							<ion-icon [name]="dishPart.icon"></ion-icon>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-item-divider>
+
+			<ion-item no-lines *ngFor="let dishPartFood of dishPart.dishPartFoodList" [hidden]="!dishPart.showDetails">
+				<h2 text-wrap>{{ dishPartFood.food.name }}</h2>
+			</ion-item>
+		</ion-item-group>
+	</ion-list>
+</ion-content>

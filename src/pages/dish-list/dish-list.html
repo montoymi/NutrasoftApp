@@ -1,0 +1,35 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ 'LIST_DISH_TITLE' | translate }}</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="openDishSavePage()">
+				<ion-icon name="add"></ion-icon>
+			</button>
+			<button ion-button icon-only (click)="presentPopover($event)">
+				<ion-icon name="more"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+	<ion-toolbar>
+		<ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"></ion-searchbar>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-refresher (ionRefresh)="getDishesByCoachId($event)">
+		<ion-refresher-content></ion-refresher-content>
+	</ion-refresher>
+
+	<ion-list>
+		<ion-item-sliding *ngFor="let dish of filteredDishList">
+			<button ion-item no-lines (click)="openDishDetailPage(dish)">
+				<h2>{{ dish.name }}</h2>
+			</button>
+			<ion-item-options>
+				<button ion-button color="danger" (click)="deleteDish(dish)">
+					<ion-icon name="trash"></ion-icon>
+				</button>
+			</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+</ion-content>

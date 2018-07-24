@@ -1,0 +1,50 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ 'DETAIL_USER_TITLE' | translate }}</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="openUserSavePage()">
+				<ion-icon name="create"></ion-icon>
+			</button>
+			<button ion-button icon-only (click)="presentPopover($event)">
+				<ion-icon name="more"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div class="profile-image-wrapper">
+		<div class="profile-image-placeholder">
+			<ion-icon name="person"></ion-icon>
+		</div>
+	</div>
+	<ion-list *ngIf="user">
+		<ion-item *ngIf="user.userType == 'CLIENT'">
+			<h2>{{ 'COACH' | translate }}</h2>
+			<p>{{ user.coach.name }}</p>
+		</ion-item>
+		<ion-item>
+			<h2>{{ 'NAME' | translate }}</h2>
+			<p>{{ user.name }}</p>
+		</ion-item>
+		<ion-item>
+			<h2>{{ 'GENDER' | translate }}</h2>
+			<p>{{ user.gender == 'M' ? ('GENDER_MALE' | translate) : ('GENDER_FEMALE' | translate) }}</p>
+		</ion-item>
+		<ion-item>
+			<h2>{{ 'BIRTHDATE' | translate }}</h2>
+			<p>{{ user.birthdate | moment:'DD/MM/YYYY' }}</p>
+		</ion-item>
+		<ion-item>
+			<h2>{{ 'PHONE' | translate }}</h2>
+			<p>{{ user.phone }}</p>
+		</ion-item>
+		<ion-item>
+			<h2>{{ 'EMAIL' | translate }}</h2>
+			<p>{{ user.email }}</p>
+		</ion-item>
+		<div padding>
+			<button type="button" ion-button small block color="light" (click)="openChangePasswordPage()">{{ 'CHANGE_PASSWORD_BUTTON' | translate }}</button>
+		</div>
+	</ion-list>
+</ion-content>

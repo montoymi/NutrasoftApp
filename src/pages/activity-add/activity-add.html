@@ -1,0 +1,103 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ 'ACTIVITIES_TITLE' | translate }}</ion-title>
+		<ion-buttons start>
+			<button ion-button (click)="cancel()">
+				<span color="primary" showWhen="ios">
+					{{ 'CANCEL_BUTTON' | translate }}
+				</span>
+				<ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons end>
+			<button ion-button (click)="done()" strong>
+				<span color="primary" showWhen="ios">
+					{{ 'OK_BUTTON' | translate }}
+				</span>
+				<ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<form [formGroup]="form" *ngIf="form">
+		<ion-list>
+			<ion-item>
+				<ion-label floating>{{ 'ACTIVITY_CLASS' | translate }}</ion-label>
+				<ion-select formControlName="activityClass" [(ngModel)]="activityClass">
+					<ion-option *ngFor="let activityClass of activityClassList" [value]="activityClass">{{ activityClass.name }}</ion-option>
+				</ion-select>
+			</ion-item>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.activityClass">
+					<div class="error-message" *ngIf="form.get('activityClass').hasError(validation.type) && (form.get('activityClass').dirty || form.get('activityClass').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<ion-item>
+				<ion-label floating>{{ 'ACTIVITY_TYPE' | translate }}</ion-label>
+				<ion-select formControlName="activityType" [(ngModel)]="activityType">
+					<ion-option *ngFor="let activityType of (activityClass ? activityClass.activityList : [])" [value]="activityType">{{ activityType.name }}</ion-option>
+				</ion-select>
+			</ion-item>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.activityType">
+					<div class="error-message" *ngIf="form.get('activityType').hasError(validation.type) && (form.get('activityType').dirty || form.get('activityType').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<ion-item>
+				<ion-label floating>{{ 'ACTIVITY' | translate }}</ion-label>
+				<ion-select formControlName="activity" [(ngModel)]="activity">
+					<ion-option *ngFor="let activity of (activityType ? activityType.activityList : [])" [value]="activity">{{ activity.name }}</ion-option>
+				</ion-select>
+			</ion-item>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.activity">
+					<div class="error-message" *ngIf="form.get('activity').hasError(validation.type) && (form.get('activity').dirty || form.get('activity').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<ion-item>
+				<ion-label floating>{{ 'DURATION' | translate }}</ion-label>
+				<ion-input type="number" formControlName="time" [(ngModel)]="time" placeholder="{{ 'HOURS_PLACEHOLDER' | translate }}" class="floating-with-placeholder"></ion-input>
+			</ion-item>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.time">
+					<div class="error-message" *ngIf="form.get('time').hasError(validation.type) && (form.get('time').dirty || form.get('time').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<ion-item no-lines>
+				<p>{{ 'DAYS' | translate }}</p>
+			</ion-item>
+			<div formGroupName="days" style="height: 220px; overflow-y: scroll;">
+				<ion-item no-lines>
+					<ion-label>{{ 'EVERYDAY' | translate }}</ion-label>
+					<ion-checkbox (ionChange)="checkAll($event)"></ion-checkbox>
+				</ion-item>
+				<ion-item no-lines *ngFor="let planDay of planDayList">
+					<ion-label>{{ planDay.dayName }}</ion-label>
+					<ion-checkbox [formControlName]="planDay.day" [(ngModel)]="planDay.checked" [checked]="selectedAll"></ion-checkbox>
+				</ion-item>
+			</div>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.days">
+					<div class="error-message" *ngIf="form.get('days').hasError(validation.type) && (form.get('days').dirty || form.get('days').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+		</ion-list>
+	</form>
+</ion-content>

@@ -1,0 +1,31 @@
+page-measurement {
+	.weight {
+		font-size: 48px;
+	}
+
+	sup {
+		font-size: 14px !important;
+	}
+
+	p {
+		font-size: 12px !important;
+	}
+
+	.card-content {
+		padding: 0px;
+	}
+
+	.col {
+		padding: 10px 0 !important;
+	}
+
+	.border-b {
+		border-bottom: 1px solid;
+		border-color: color($colors, _gray);
+	}
+
+	.border-r {
+		border-right: 1px solid;
+		border-color: color($colors, _gray);
+	}
+}

@@ -1,0 +1,53 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ menu && !menu.id ? ('ADD_MENU_TITLE' | translate) : ('EDIT_MENU_TITLE' | translate) }}</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="done()">
+				<ion-icon name="checkmark"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<form [formGroup]="form" *ngIf="form">
+		<ion-list>
+			<ion-item>
+				<ion-label floating>{{ 'DIET_TYPE' | translate }}</ion-label>
+				<ion-select formControlName="dietType" (ionChange)="getNextMenu($event)">
+					<ion-option *ngFor="let dietType of dietTypeList" [value]="dietType.id">{{ dietType.name }}</ion-option>
+				</ion-select>
+			</ion-item>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.dietType">
+					<div class="error-message" *ngIf="form.get('dietType').hasError(validation.type) && (form.get('dietType').dirty || form.get('dietType').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<ion-item no-lines>
+				<h2>{{ 'MENU_NAME' | translate }}</h2>
+				<p>{{ menu.name }}</p>
+			</ion-item>
+			<ion-item-divider>
+				{{ 'DISHES' | translate }}
+			</ion-item-divider>
+			<div formArrayName="formArray">
+				<div *ngFor="let form of form.controls.formArray.controls; let i = index;" [formGroupName]="i">
+					<ion-item>
+						<ion-label floating>{{ mealList[i].name }}</ion-label>
+						<ion-input type="text" formControlName="dish" (tap)="openDishSearchPage(i)"></ion-input>
+					</ion-item>
+					<div class="validation-errors">
+						<ng-container *ngFor="let validation of validationMessages.dish">
+							<div class="error-message" *ngIf="form.get('dish').hasError(validation.type) && (form.get('dish').dirty || form.get('dish').touched)">
+								{{ validation.message }}
+							</div>
+						</ng-container>
+					</div>
+				</div>
+			</div>
+		</ion-list>
+	</form>
+</ion-content>
