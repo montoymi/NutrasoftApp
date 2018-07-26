@@ -1,0 +1,54 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ 'DISH_VALIDATOR_TITLE' | translate }}</ion-title>
+		<ion-buttons start>
+			<button ion-button (click)="cancel()">
+				<span color="primary" showWhen="ios">
+					{{ 'CANCEL_BUTTON' | translate }}
+				</span>
+				<ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons end>
+			<button ion-button (click)="done()" strong>
+				<span color="primary" showWhen="ios">
+					{{ 'OK_BUTTON' | translate }}
+				</span>
+				<ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<form [formGroup]="form">
+		<ion-list>
+			<ion-item>
+				<ion-label floating>{{ 'ENERG_INTAKE' | translate }}</ion-label>
+				<ion-input type="text" formControlName="energIntake"></ion-input>
+			</ion-item>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.energIntake">
+					<div class="error-message" *ngIf="form.get('energIntake').hasError(validation.type) && (form.get('energIntake').dirty || form.get('energIntake').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<ion-item>
+				<ion-label floating>{{ 'NUTRIENT_RATIO' | translate }}</ion-label>
+				<ion-select formControlName="nutrientRatio" [(ngModel)]="nutrientRatio">
+					<ion-option *ngFor="let nutrientRatio of nutrientRatiolList" [value]="nutrientRatio">{{ nutrientRatio.name }}</ion-option>
+				</ion-select>
+			</ion-item>
+			<div class="validation-errors">
+				<ng-container *ngFor="let validation of validationMessages.nutrientRatio">
+					<div class="error-message" *ngIf="form.get('nutrientRatio').hasError(validation.type) && (form.get('nutrientRatio').dirty || form.get('nutrientRatio').touched)">
+						{{ validation.message }}
+					</div>
+				</ng-container>
+			</div>
+
+		</ion-list>
+	</form>
+</ion-content>

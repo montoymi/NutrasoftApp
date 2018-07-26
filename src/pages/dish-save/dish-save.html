@@ -2,6 +2,9 @@
 	<ion-navbar>
 		<ion-title>{{ dish && !dish.id ? ('ADD_DISH_TITLE' | translate) : ('EDIT_DISH_TITLE' | translate) }}</ion-title>
 		<ion-buttons end>
+			<button ion-button icon-only (click)="openDishValidatorPage()">
+				<ion-icon name="flask"></ion-icon>
+			</button>
 			<button ion-button icon-only (click)="done()">
 				<ion-icon name="checkmark"></ion-icon>
 			</button>

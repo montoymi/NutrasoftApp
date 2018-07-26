@@ -2,6 +2,7 @@ import 'rxjs/add/operator/toPromise';
 import { Injectable } from '@angular/core';
 
 import { Api } from '../api/api';
+import { Settings } from '../settings/settings';
 import { User } from '../../models/user';
 import { formatISO8601_Z } from '../../utils/utils';
 import { RESPONSE_STATUS } from '../../constants/constants';
@@ -10,7 +11,7 @@ import { RESPONSE_STATUS } from '../../constants/constants';
 export class UserProvider {
 	user: User;
 
-	constructor(public api: Api) {}
+	constructor(public api: Api, public settings: Settings) {}
 
 	createUser(user: User) {
 		user.birthdate = formatISO8601_Z(user.birthdate);
@@ -106,6 +107,9 @@ export class UserProvider {
 	 */
 	logout() {
 		this.user = null;
+
+		// Elimina el usuario de la configuración.
+		this.settings.setValue('user', null);
 	}
 
 	/**
@@ -115,5 +119,8 @@ export class UserProvider {
 		console.info('loggedIn: ' + user.email);
 		user.birthdate = formatISO8601_Z(user.birthdate);
 		this.user = user;
+
+		// Registra el usuario en la configuración.
+		this.settings.setValue('user', this.user);
 	}
 }

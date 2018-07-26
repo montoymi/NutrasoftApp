@@ -29,7 +29,7 @@
 			</ion-item>
 			<div formGroupName="macros">
 				<ion-item>
-					<ion-label stacked class="ion-label-macros">{{ 'MACROS_RATIO' | translate }}</ion-label>
+					<ion-label stacked class="ion-label-macros">{{ 'NUTRIENT_RATIO' | translate }}</ion-label>
 					<ion-range min="0" max="100" step="5" pin="true" formControlName="proEnergPct" [(ngModel)]="planDay.proEnergPct" (ionChange)="setProBodywt($event)">
 						<ion-label range-left class="ion-label-left">{{ 'PRO' | translate }}</ion-label>
 						<ion-label range-right class="ion-label-right">{{ planDay.proEnergPct }}%</ion-label>

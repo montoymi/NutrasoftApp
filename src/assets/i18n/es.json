@@ -32,14 +32,6 @@
 	"STEP3_PLAN_SUBTITLE": "Seleccione las actividades diarias",
 	"STEP4_PLAN_SUBTITLE": "Ajuste la ingesta diaria",
 
-	"CUSTOMERS_TITLE": "Clientes",
-	"COACHES_TITLE": "Entrenadores",
-	"ACTIVITIES_TITLE": "Actividades",
-	"MACRONUTRIENT_TITLE": "Macronutrientes",
-	"FOODS_TITLE": "Alimentos",
-	"DIET_TYPE_TITLE": "Tipo de dieta",
-	"DISH_TITLE": "Platos",
-
 	"DIET_TITLE": "Dieta",
 	"GENERATE_DIET_TITLE": "Generar dieta",
 	"EQUIVALENT_MEASURE_TITLE": "Medida equivalente",
@@ -54,6 +46,17 @@
 	"LIST_MENU_TITLE": "Menús",
 	"ADD_MENU_TITLE": "Agregar menú",
 	"EDIT_MENU_TITLE": "Editar menú",
+
+	"//1.1": "POPUP TITLE",
+
+	"CUSTOMERS_TITLE": "Clientes",
+	"COACHES_TITLE": "Entrenadores",
+	"ACTIVITIES_TITLE": "Actividades",
+	"MACRONUTRIENT_TITLE": "Macronutrientes",
+	"FOODS_TITLE": "Alimentos",
+	"DIET_TYPE_TITLE": "Tipo de dieta",
+	"DISH_TITLE": "Platos",
+	"DISH_VALIDATOR_TITLE": "Validar plato",
 
 	"//2": "USER FIELD",
 
@@ -111,16 +114,13 @@
 	"FAT": "Grasas",
 
 	"MACROS_RATIO_TYPE_CUSTOM": "Personalizado",
-	"MACROS_RATIO": "Distribución de macronutrientes",
+	"NUTRIENT_RATIO": "Distribución de macronutrientes",
 	"PROTEIN_CONSUMPTION": "Consumo de proteína",
 	"PROTEIN_CONSUMPTION_UNIT": " g/kg de peso corporal",
 
 	"//3.1": "DISH FIELD",
 
 	"DISH_NAME": "Nombre",
-	"INGREDIENTS": "Ingredientes",
-	"INGREDIENT": "Ingrediente",
-	"QUANTITY": "Cantidad",
 
 	"PART_PRO": "Proteína",
 	"PART_GAR": "Guarnición",
@@ -129,6 +129,8 @@
 	"FOOD_GROUP": "Grupo de alimentos",
 
 	"COMPONENT": "Componente",
+
+	"ENERG_INTAKE": "Energía",
 
 	"//3.2": "DIET FIELD",
 

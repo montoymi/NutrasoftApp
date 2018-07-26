@@ -3,11 +3,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Platform } from 'ionic-angular';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Globalization } from '@ionic-native/globalization';
 
 import { FirstRunPage, MainPage } from '../pages/pages';
 import { Settings, UserProvider } from '../providers/providers';
+import { User } from '../models/user';
 
 @Component({
 	template: `<ion-nav #content [root]="rootPage"></ion-nav>`
@@ -18,40 +18,15 @@ export class MyApp {
 	constructor(
 		private translate: TranslateService,
 		public platform: Platform,
-		settings: Settings,
+		private settings: Settings,
 		private config: Config,
 		private statusBar: StatusBar,
 		private splashScreen: SplashScreen,
-		private afAuth: AngularFireAuth,
 		public userProvider: UserProvider,
 		private globalization: Globalization
 	) {
 		this.initializeApp();
 		this.initTranslate();
-
-		this.afAuth.auth.onAuthStateChanged(user => {
-			if (user) {
-				// User is signed in.
-				this.userProvider.getUserByEmail(user.email).subscribe(
-					(res: any) => {
-						// Es nulo cuando se invoca desde onAuthStateChanged
-						// luego de createUserWithEmailAndPassword y antes de
-						// crear el usuario en la app.
-						if (!res.body) {
-							return;
-						}
-
-						this.rootPage = MainPage;
-					},
-					err => {
-						console.info(err);
-					}
-				);
-			} else {
-				// User isn't signed in.
-				this.rootPage = FirstRunPage;
-			}
-		});
 	}
 
 	initializeApp() {
@@ -73,17 +48,33 @@ export class MyApp {
 			.then(res => {
 				// El lenguaje retorna en formato es-US.
 				let lang = res.value.split('-')[0];
-				this.translate.use(lang);
+				this.setLangAndRootPage(lang);
 			})
 			.catch(err => {
 				// Cuando se ejecuta desde el navegador entra
 				// a esta parte, porque no carga las librerias
 				// de cordova.
-				this.translate.use(this.translate.getDefaultLang());
+				this.setLangAndRootPage(this.translate.getDefaultLang());
 			});
 
 		this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
 			this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
+		});
+	}
+
+	setLangAndRootPage(lang: string) {
+		this.translate.use(lang);
+
+		// Obtiene el usuario de la configuración.
+		this.settings.getValue('user').then((user: User) => {
+			if (user) {
+				// User is signed in.
+				this.userProvider.user = user;
+				this.rootPage = MainPage;
+			} else {
+				// User isn't signed in.
+				this.rootPage = FirstRunPage;
+			}
 		});
 	}
 }

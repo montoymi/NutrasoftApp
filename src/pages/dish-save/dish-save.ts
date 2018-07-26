@@ -41,17 +41,15 @@ export class DishSavePage {
 		public dishProvider: DishProvider,
 		public events: Events
 	) {
-		this.translate
-			.get(['PART_PRO', 'PART_GAR', 'PART_SAU', 'REQUIRED_DISH_NAME_ERROR', 'REQUIRED_FOODS_ERROR', 'CREATE_DISH_SUCCESS', 'UPDATE_DISH_SUCCESS'])
-			.subscribe(values => {
-				this.partNameList[0] = values['PART_PRO'];
-				this.partNameList[1] = values['PART_GAR'];
-				this.partNameList[2] = values['PART_SAU'];
-				this.requiredDishNameError = values['REQUIRED_DISH_NAME_ERROR'];
-				this.requiredFoodsError = values['REQUIRED_FOODS_ERROR'];
-				this.createDishSuccess = values['CREATE_DISH_SUCCESS'];
-				this.updateDishSuccess = values['UPDATE_DISH_SUCCESS'];
-			});
+		this.translate.get(['PART_PRO', 'PART_GAR', 'PART_SAU', 'REQUIRED_DISH_NAME_ERROR', 'REQUIRED_FOODS_ERROR', 'CREATE_DISH_SUCCESS', 'UPDATE_DISH_SUCCESS']).subscribe(values => {
+			this.partNameList[0] = values['PART_PRO'];
+			this.partNameList[1] = values['PART_GAR'];
+			this.partNameList[2] = values['PART_SAU'];
+			this.requiredDishNameError = values['REQUIRED_DISH_NAME_ERROR'];
+			this.requiredFoodsError = values['REQUIRED_FOODS_ERROR'];
+			this.createDishSuccess = values['CREATE_DISH_SUCCESS'];
+			this.updateDishSuccess = values['UPDATE_DISH_SUCCESS'];
+		});
 
 		this.validationMessages = {
 			name: [{ type: 'required', message: this.requiredDishNameError }],
@@ -194,6 +192,15 @@ export class DishSavePage {
 			dishPartFoodList.splice(index, 1);
 			this.validateFoods();
 		}
+	}
+
+	openDishValidatorPage() {
+		this.prepareSave();
+
+		let modal = this.modalCtrl.create('DishValidatorPage', {
+			dish: this.dish
+		});
+		modal.present();
 	}
 
 	createDish() {
