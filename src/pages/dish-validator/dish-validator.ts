@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { IonicPage, NavController, NavParams, ViewController, ToastController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController, ToastController, LoadingController } from 'ionic-angular';
 
 import { DishProvider } from '../../providers/providers';
 import { NutrientRatio } from '../../models/nutrient-ratio';
@@ -31,6 +31,7 @@ export class DishValidatorPage {
 		public navCtrl: NavController,
 		public navParams: NavParams,
 		public viewCtrl: ViewController,
+		public modalCtrl: ModalController,
 		public toastCtrl: ToastController,
 		public loadingCtrl: LoadingController,
 		public translate: TranslateService,
@@ -48,8 +49,6 @@ export class DishValidatorPage {
 			energIntake: [{ type: 'required', message: this.requiredEnergIntakeError }],
 			nutrientRatio: [{ type: 'required', message: this.requiredNutrientRatioError }]
 		};
-
-		this.getNutrientRatioList();
 	}
 
 	buildForm() {
@@ -86,23 +85,15 @@ export class DishValidatorPage {
 		return true;
 	}
 
-	getNutrientRatioList() {
-		let loading = presentLoading(this.loadingCtrl);
-		this.dishProvider.getAllNutrientRatios().subscribe(
-			(res: any) => {
-				loading.dismiss();
-				this.nutrientRatioList = res.body;
-
-				for (let nutrientRatio of this.nutrientRatioList) {
-					//TODO: lang
-					nutrientRatio.name = nutrientRatio.proEnergPct + '/' + nutrientRatio.choEnergPct + '/' + nutrientRatio.fatEnergPct;
-				}
-			},
-			err => {
-				loading.dismiss();
-				presentToast(this.toastCtrl, err.message);
+	openMacronutrientSetPage() {
+		let modal = this.modalCtrl.create('MacronutrientSetPage');
+		modal.onDidDismiss((nutrientRatio: NutrientRatio) => {
+			if (nutrientRatio) {
+				this.nutrientRatio = nutrientRatio;
+				this.form.patchValue({ nutrientRatio: this.nutrientRatio.ratio });
 			}
-		);
+		});
+		modal.present();
 	}
 
 	validateDish() {

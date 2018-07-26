@@ -114,7 +114,7 @@
 	"FAT": "Grasas",
 
 	"MACROS_RATIO_TYPE_CUSTOM": "Personalizado",
-	"NUTRIENT_RATIO": "Distribución de macronutrientes",
+	"NUTRIENT_RATIO": "Ratio de macronutrientes",
 	"PROTEIN_CONSUMPTION": "Consumo de proteína",
 	"PROTEIN_CONSUMPTION_UNIT": " g/kg de peso corporal",
 
@@ -131,6 +131,9 @@
 	"COMPONENT": "Componente",
 
 	"ENERG_INTAKE": "Energía",
+	"BIOTYPE_ECTOMORPH": "Ectomorfo",
+	"BIOTYPE_MESOMORPH": "Mesomorfo",
+	"BIOTYPE_ENDOMORPH": "Endomorfo",
 
 	"//3.2": "DIET FIELD",
 
@@ -243,6 +246,9 @@
 	"DIET_PLAN_NOT_FOUND": "El usuario aún no tiene un plan creado",
 	"DIET_MENU_NOT_FOUND": "No existen menús según los datos el plan",
 	"MEAS_PLAN_NOT_FOUND": "El usuario aún no tiene un plan creado",
+
+	"REQUIRED_ENERG_INTAKE_ERROR": "Introduce la energía",
+	"REQUIRED_NUTRIENT_RATIO_ERROR": "Selecciona el ratio de macronutrientes",
 
 	"//8": "BUTTON",
 

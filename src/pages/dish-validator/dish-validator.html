@@ -37,9 +37,7 @@
 
 			<ion-item>
 				<ion-label floating>{{ 'NUTRIENT_RATIO' | translate }}</ion-label>
-				<ion-select formControlName="nutrientRatio" [(ngModel)]="nutrientRatio">
-					<ion-option *ngFor="let nutrientRatio of nutrientRatiolList" [value]="nutrientRatio">{{ nutrientRatio.name }}</ion-option>
-				</ion-select>
+				<ion-input type="text" formControlName="nutrientRatio" (tap)="openMacronutrientSetPage()"></ion-input>
 			</ion-item>
 			<div class="validation-errors">
 				<ng-container *ngFor="let validation of validationMessages.nutrientRatio">

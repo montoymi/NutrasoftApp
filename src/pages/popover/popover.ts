@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { AngularFireAuth } from 'angularfire2/auth';
 
 import { UserProvider } from '../../providers/providers';
+import { FirstRunPage } from '../pages';
 
 @IonicPage()
 @Component({
@@ -31,5 +32,6 @@ export class PopoverPage {
 		this.afAuth.auth.signOut();
 		this.userProvider.logout();
 		this.viewCtrl.dismiss();
+		this.navCtrl.setRoot(FirstRunPage);
 	}
 }

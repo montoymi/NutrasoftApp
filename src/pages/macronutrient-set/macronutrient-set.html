@@ -1,0 +1,51 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>{{ 'NUTRIENT_RATIO' | translate }}</ion-title>
+		<ion-buttons start>
+			<button ion-button (click)="cancel()">
+				<span color="primary" showWhen="ios">
+					{{ 'CANCEL_BUTTON' | translate }}
+				</span>
+				<ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+		<ion-buttons end>
+			<button ion-button (click)="done()" strong>
+				<span color="primary" showWhen="ios">
+					{{ 'OK_BUTTON' | translate }}
+				</span>
+				<ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ion-list radio-group [(ngModel)]="nutrientRatio">
+		<ion-item-group *ngFor="let group of groupArray">
+			<ion-item-divider sticky (click)="toggleDetails(group)">
+				<ion-grid no-padding>
+					<ion-row>
+						<ion-col>
+							{{ group.goal.name }}
+						</ion-col>
+						<ion-col text-right col-1>
+							<ion-icon [name]="group.icon"></ion-icon>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-item-divider>
+
+			<div *ngIf="group.showDetails">
+				<ion-item *ngFor="let nutrientRatio of group.nutrientRatioArray" align-items-bottom>
+					<ion-label>
+						<h2>{{ nutrientRatio.biotype }}</h2>
+						<p>{{ nutrientRatio.ratio }}</p>
+					</ion-label>
+					<!--<ion-radio [value]="nutrientRatio" [checked]="nutrientRatio.id==p_nutrientRatio.id"></ion-radio>-->
+					<ion-radio [value]="nutrientRatio"></ion-radio>
+				</ion-item>
+			</div>
+		</ion-item-group>
+	</ion-list>
+</ion-content>

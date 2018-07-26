@@ -95,8 +95,8 @@ export class DishProvider {
 		return seq;
 	}
 
-	getAllNutrientRatios() {
-		let seq = this.api.get('dishes/nutrient-ratios').share();
+	getAllNutrientRatios(lang: string) {
+		let seq = this.api.get('dishes/nutrient-ratios', { lang: lang }).share();
 
 		seq.subscribe(
 			(res: any) => {
