@@ -63,14 +63,13 @@ ion-input.floating-with-placeholder {
 	}
 }
 
-// Para mostrar botones uno debajo de otro
-// class="stacked"
-button.stacked {
-	margin-bottom: 12px;
-}
-
 .force-back-button .back-button {
 	display: inline-block;
+}
+
+ion-item-divider {
+	border-top: 1px solid color($colors, _gray);
+	border-bottom: 1px solid color($colors, _gray);
 }
 
 /*

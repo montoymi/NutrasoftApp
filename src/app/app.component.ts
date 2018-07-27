@@ -65,16 +65,19 @@ export class MyApp {
 	setLangAndRootPage(lang: string) {
 		this.translate.use(lang);
 
-		// Obtiene el usuario de la configuración.
-		this.settings.getValue('user').then((user: User) => {
-			if (user) {
-				// User is signed in.
-				this.userProvider.user = user;
-				this.rootPage = MainPage;
-			} else {
-				// User isn't signed in.
-				this.rootPage = FirstRunPage;
-			}
+		// Inicialializa la configuración.
+		this.settings.load().then(() => {
+			// Obtiene el usuario de la configuración.
+			this.settings.getValue('user').then((user: User) => {
+				if (user) {
+					// User is signed in.
+					this.userProvider.user = user;
+					this.rootPage = MainPage;
+				} else {
+					// User isn't signed in.
+					this.rootPage = FirstRunPage;
+				}
+			});
 		});
 	}
 }
